@@ -27,3 +27,17 @@ document.addEventListener('touchend', e => {
     diff > 0 ? showSlide(index + 1) : showSlide(index - 1);
   }
 });
+
+/* ===== FULLSCREEN ===== */
+
+const fsBtn = document.querySelector('.fullscreen-btn');
+
+fsBtn.addEventListener('click', () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+});
+
+
