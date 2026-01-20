@@ -1,12 +1,11 @@
 * {
+  margin: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: #fff;
-  font-family: 'Montserrat', sans-serif;
   overflow: hidden;
+  background: #000;
 }
 
 /* ===== HEADER ===== */
@@ -15,35 +14,29 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 88px;
-  padding: 12px 32px;
-  display: flex;
-  align-items: center;
   z-index: 10;
-  background: rgba(255,255,255,0.9);
-}
-
-.logo {
+  height: 72px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  background: rgba(255,255,255,0.85);
 }
 
-.logo img {
-  height: 56px;
+.topbar img {
+  height: 48px;
+}
+
+.topbar span {
+  font-size: 20px;
+  font-family: serif;
 }
 
 /* ===== SLIDER ===== */
 
 .slider {
+  width: 100vw;
   height: 100vh;
-  padding-top: 88px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
 }
 
@@ -51,23 +44,20 @@ body {
 
 .slide {
   position: absolute;
+  inset: 0;
   opacity: 0;
   transition: opacity 0.5s ease;
-  width: 100%;
-  max-width: 1280px;
 }
 
 .slide.active {
   opacity: 1;
 }
 
-/* === ВАЖНЕЙШАЯ ЧАСТЬ === */
 .slide img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-  display: block;
+  height: 100%;
+  object-fit: cover;       /* КЛЮЧЕВО */
+  object-position: center; /* центр композиции */
 }
 
 /* ===== NAV ===== */
@@ -78,10 +68,11 @@ body {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: none;
   background: #b11217;
   color: #fff;
+  border: none;
   font-size: 22px;
+  z-index: 10;
   cursor: pointer;
 }
 
@@ -91,20 +82,11 @@ body {
 /* ===== MOBILE ===== */
 
 @media (max-width: 768px) {
-  .slider {
-    padding-top: 72px;
-  }
-
   .topbar {
-    height: 72px;
-    padding: 10px 20px;
+    height: 60px;
   }
 
-  .logo img {
-    height: 44px;
-  }
-
-  .logo span {
-    font-size: 18px;
+  .topbar img {
+    height: 40px;
   }
 }
