@@ -17,3 +17,17 @@ nextBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', () => {
   showSlide(index - 1);
 });
+
+/* свайп для телефона */
+let startX = 0;
+
+document.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener('touchend', e => {
+  const diff = startX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) {
+    diff > 0 ? showSlide(index + 1) : showSlide(index - 1);
+  }
+});
